@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anmol Gas Agency – LPG Cylinder Booking & Home Delivery</title>
+<meta name="description" content="Book LPG cylinder refills, get home delivery and apply for new gas connections with Anmol Gas Agency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F1F4F6; --ink:#0F2230; --muted:#53636F; --line:#D4DCE2;
+  --flame:#1F6FDB; --cyl:#C8321E; --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--flame);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Header */
+header{background:var(--ink);color:#fff;position:sticky;top:0;z-index:10}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px;max-width:1100px;margin:0 auto}
+.logo{font-weight:800;font-stretch:90%;font-size:1.2rem;text-decoration:none;letter-spacing:.2px}
+.logo span{color:#7FB2FF}
+nav{display:flex;gap:22px;align-items:center}
+nav a{text-decoration:none;font-size:.95rem;opacity:.9}
+nav a:hover{opacity:1;text-decoration:underline}
+.call{background:var(--cyl);padding:8px 16px;border-radius:6px;font-weight:700;opacity:1!important}
+@media(max-width:720px){nav a:not(.call){display:none}}
+
+/* Hero */
+.hero{padding:56px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+h1{font-size:clamp(2.3rem,5.4vw,4rem);line-height:1.05;font-weight:800;font-stretch:80%;letter-spacing:-.5px}
+.lead{margin-top:18px;color:var(--muted);max-width:46ch;font-size:1.1rem}
+.facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:24px;font-weight:600;font-size:.95rem}
+.facts li{list-style:none;padding-left:20px;position:relative}
+.facts li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:50%;background:var(--flame)}
+
+/* Booking card – the one bold element */
+.book{background:var(--white);border:2px solid var(--ink);border-radius:14px;padding:26px;box-shadow:8px 8px 0 var(--cyl)}
+.book h2{font-size:1.4rem;font-stretch:85%;margin-bottom:4px}
+.book p.s{color:var(--muted);font-size:.92rem;margin-bottom:16px}
+label{display:block;font-weight:600;font-size:.9rem;margin:12px 0 4px}
+input,select,textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:8px;font:inherit;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{border-color:var(--flame)}
+textarea{resize:vertical;min-height:70px}
+button.go{margin-top:18px;width:100%;padding:14px;border:0;border-radius:8px;background:var(--flame);color:#fff;font:inherit;font-weight:700;font-size:1.05rem;cursor:pointer}
+button.go:hover{background:#1858B0}
+.err{color:var(--cyl);font-size:.88rem;margin-top:10px;min-height:1.2em}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+
+/* Sections */
+section{padding:64px 0}
+.alt{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2.t{font-size:clamp(1.7rem,3.4vw,2.4rem);font-stretch:85%;font-weight:800;line-height:1.15;margin-bottom:10px}
+.sub{color:var(--muted);max-width:56ch;margin-bottom:32px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper)}
+.services div{padding:24px;border-right:1px solid var(--line)}
+.services div:last-child{border-right:0}
+.services h3{font-size:1.1rem;margin-bottom:6px}
+.services p{color:var(--muted);font-size:.96rem}
+@media(max-width:700px){.services div{border-right:0;border-bottom:1px solid var(--line)}.services div:last-child{border-bottom:0}}
+
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line)}
+th{background:var(--ink);color:#fff;font-weight:600}
+tr:last-child td{border-bottom:0}
+.note{margin-top:12px;font-size:.88rem;color:var(--muted)}
+.scroll{overflow-x:auto}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;counter-reset:s;list-style:none}
+.steps li{counter-increment:s;padding-top:14px;border-top:3px solid var(--ink)}
+.steps li::before{content:"Step " counter(s);display:block;font-weight:700;color:var(--cyl);margin-bottom:4px}
+.steps b{display:block;margin-bottom:2px}
+.steps span{color:var(--muted);font-size:.96rem}
+
+.safety{background:var(--ink);color:#fff}
+.safety .sub{color:#B7C4CE}
+.safety ul{columns:2;column-gap:40px;list-style:none;max-width:800px}
+.safety li{break-inside:avoid;padding:8px 0 8px 26px;position:relative}
+.safety li::before{content:"!";position:absolute;left:0;top:8px;width:18px;height:18px;border-radius:50%;background:var(--cyl);font-size:.75rem;font-weight:800;display:grid;place-items:center}
+.emerg{margin-top:26px;padding:16px 18px;border:1.5px solid #7FB2FF;border-radius:10px;max-width:800px}
+@media(max-width:700px){.safety ul{columns:1}}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact dl dt{font-weight:700;margin-top:16px}
+.contact dl dd{color:var(--muted)}
+.map{min-height:260px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;background:var(--paper);text-align:center;padding:20px;color:var(--muted)}
+.map a{color:var(--flame);font-weight:700}
+@media(max-width:760px){.contact{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:#B7C4CE;padding:28px 0;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+.wa{position:fixed;right:16px;bottom:16px;background:#1FA855;color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:20}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="#top">Anmol <span>Gas Agency</span></a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#prices">Prices</a>
+      <a href="#safety">Safety</a>
+      <a href="#contact">Contact</a>
+      <a class="call" href="tel:+917460857549">Call now</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Your gas cylinder, at your door.</h1>
+      <p class="lead">Book a refill in under a minute. Anmol Gas Agency delivers domestic and commercial LPG cylinders to your home or shop and helps you get a new connection.</p>
+      <ul class="facts">
+        <li>Home delivery</li>
+        <li>Booking on WhatsApp or phone</li>
+        <li>New connection help</li>
+      </ul>
+    </div>
+
+    <div class="book" id="book">
+      <h2>Book a cylinder</h2>
+      <p class="s">Fill this in and we'll receive your request on WhatsApp.</p>
+      <form id="bookForm" novalidate>
+        <label for="name">Your name</label>
+        <input id="name" name="name" autocomplete="name" required>
+        <label for="phone">Mobile number</label>
+        <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit number" required>
+        <label for="type">Cylinder type</label>
+        <select id="type">
+          <option>14.2 kg domestic</option>
+          <option>5 kg domestic</option>
+          <option>19 kg commercial</option>
+        </select>
+        <label for="addr">Delivery address</label>
+        <textarea id="addr" required></textarea>
+        <button class="go" type="submit">Send booking on WhatsApp</button>
+        <p class="err" id="err" role="alert"></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="alt">
+  <div class="wrap">
+    <h2 class="t">What we do</h2>
+    <p class="sub">Everything you need to keep your kitchen or business running on gas.</p>
+    <div class="services">
+      <div><h3>Cylinder refill</h3><p>Book a refill for your domestic or commercial cylinder and we bring it to you.</p></div>
+      <div><h3>Home delivery</h3><p>Delivered to your doorstep. Please check the seal and weight when you receive it.</p></div>
+      <div><h3>New connection</h3><p>We guide you through the documents and the process for a new LPG connection.</p></div>
+      <div><h3>Commercial supply</h3><p>19 kg cylinders for restaurants, tea stalls, canteens and small businesses.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section id="prices">
+  <div class="wrap">
+    <h2 class="t">Cylinder prices</h2>
+    <p class="sub">Prices are set by the gas company and change from time to time. Call us for today's rate.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Cylinder</th><th>Used for</th><th>Price</th></tr></thead>
+        <tbody>
+          <tr><td>14.2 kg</td><td>Home kitchen</td><td>₹ ____ </td></tr>
+          <tr><td>5 kg</td><td>Small family, students</td><td>₹ ____ </td></tr>
+          <tr><td>19 kg</td><td>Shops, restaurants</td><td>₹ ____ </td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Fill in your current prices above before publishing.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="alt">
+  <div class="wrap">
+    <h2 class="t">How booking works</h2>
+    <p class="sub">Four steps from request to delivery.</p>
+    <ol class="steps">
+      <li><b>Send your request</b><span>Use the form, call us, or message on WhatsApp.</span></li>
+      <li><b>We confirm</b><span>We check your details and tell you when to expect delivery.</span></li>
+      <li><b>Cylinder arrives</b><span>Our delivery person brings it to your address.</span></li>
+      <li><b>Check and pay</b><span>Check the seal, then pay and take your bill.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section id="safety" class="safety">
+  <div class="wrap">
+    <h2 class="t">Gas safety at home</h2>
+    <p class="sub">A few habits keep your family safe.</p>
+    <ul>
+      <li>Keep the cylinder upright and in a ventilated place.</li>
+      <li>Turn off the regulator when you are not cooking.</li>
+      <li>Check the rubber tube for cracks every few months.</li>
+      <li>Keep the cylinder away from heat and open flames.</li>
+      <li>Never use a damaged regulator or tube.</li>
+      <li>Check the seal before accepting a new cylinder.</li>
+    </ul>
+    <div class="emerg"><b>If you smell gas:</b> do not switch any light or appliance on or off. Turn off the regulator, open the doors and windows, move everyone outside, and call us or your gas company's emergency number.</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <h2 class="t">Visit or call us</h2>
+      <dl>
+        <dt>Address</dt><dd>Anmol Gas Agency, Dhangata, Santkabir Nagar, Uttar Pradesh</dd>
+        <dt>Phone</dt><dd><a href="tel:+917460857549">+91 74608 57549</a></dd>
+        <dt>WhatsApp</dt><dd><a href="https://wa.me/917460857549">+91 74608 57549</a></dd>
+        <dt>Opening hours</dt><dd>Mon–Sat, 9:00 am – 7:00 pm<br>Sunday: [update]</dd>
+      </dl>
+    </div>
+    <div class="map">
+      <p>Add your shop location here.<br><a href="https://www.google.com/maps" target="_blank" rel="noopener">Open Google Maps</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Anmol Gas Agency. All rights reserved.</span>
+    <span>Authorised LPG distributor [add your company name]</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/917460857549" aria-label="Chat on WhatsApp">WhatsApp us</a>
+
+<script>
+// ====== EDIT THIS: your WhatsApp number with country code, no + or spaces ======
+const WHATSAPP_NUMBER = "917460857549";
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+document.getElementById("bookForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.replace(/\D/g,"");
+  const type = document.getElementById("type").value;
+  const addr = document.getElementById("addr").value.trim();
+  const err = document.getElementById("err");
+
+  if(!name || !addr){ err.textContent = "Enter your name and delivery address."; return; }
+  if(phone.length < 10){ err.textContent = "Enter a valid 10-digit mobile number."; return; }
+  err.textContent = "";
+
+  const msg = "New cylinder booking\n" +
+    "Name: " + name + "\n" +
+    "Mobile: " + phone + "\n" +
+    "Cylinder: " + type + "\n" +
+    "Address: " + addr;
+  window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+});
+</script>
+</body>
+</html>
